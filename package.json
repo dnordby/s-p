@@ -1,0 +1,43 @@
+{
+  "name": "shopify-base",
+  "version": "1.0.0",
+  "description": "V+V Base Shopify Theme",
+  "main": "entry.js",
+  "dependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "bootstrap": "^3.3.7",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "jquery": "^3.1.1",
+    "postcss-shopify-settings-variables": "^0.1.4",
+    "readmore-js": "^2.1.0",
+    "webpack": "^1.13.3"
+  },
+  "devDependencies": {
+    "css-loader": "^0.26.0",
+    "node-sass": "^3.13.0",
+    "postcss": "^5.2.16",
+    "postcss-load-config": "^1.2.0",
+    "postcss-loader": "^1.3.3",
+    "postcss-scss": "^0.4.1",
+    "postcss-shopify-settings-variables": "^0.1.4",
+    "precss": "^1.4.0",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.2",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnordby/shopify-base.git"
+  },
+  "author": "daniel@verbalplusvisual.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dnordby/shopify-base/issues"
+  },
+  "homepage": "https://github.com/dnordby/shopify-base#readme"
+}
