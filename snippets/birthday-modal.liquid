@@ -1,0 +1,35 @@
+<div class="birthday-modal">
+	<h3>Please enter the birthday for the child receiving this box of fun!</h3>
+	<select name="month">
+		<option value="January">January</option>
+		<option value="February">February</option>
+		<option value="March">March</option>
+		<option value="April">April</option>
+		<option value="May">May</option>
+		<option value="June">June</option>
+		<option value="July">July</option>
+		<option value="August">August</option>
+		<option value="September">September</option>
+		<option value="October">October</option>
+		<option value="November">November</option>
+		<option value="December">December</option>
+	</select>
+
+	{% assign start = 1 %}
+	<select name="day">
+		{% if start <= 31 %}
+			<option value="{{ start }}">{{ start }}</option>
+			{% assign start = start | plus: 1 %}
+		{% endif %}
+	</select>
+
+	{% capture year %}{{ 'now' | date: "%Y" }}{% endcapture %}
+	{% assign start = year %}
+	<select name="day">
+		{% if start > 1999 %}
+			<option value="{{ start }}">{{ start }}</option>
+			{% assign start = start | minus: 1 %}
+		{% endif %}
+	</select>
+
+</div>
