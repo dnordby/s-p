@@ -15,21 +15,21 @@
 		<option value="December">December</option>
 	</select>
 
-	{% assign start = 1 %}
 	<select name="day">
-		{% if start <= 31 %}
-			<option value="{{ start }}">{{ start }}</option>
-			{% assign start = start | plus: 1 %}
-		{% endif %}
+		{% assign days = '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31' %}
+		{% assign days = days | split: ',' %}
+		{% for day in days %}
+			<option value="{{ day }}">{{ day }}</option>
+		{% endfor %}
 	</select>
 
 	{% capture year %}{{ 'now' | date: "%Y" }}{% endcapture %}
-	{% assign start = year %}
+	{% capture years %}{{year}},{{year | minus: 1}},{{year | minus: 2}},{{year | minus: 3}},{{year | minus: 4}},{{year | minus: 5}},{{year | minus: 6}},{{year | minus: 7}},{{year | minus: 8}},{{year | minus: 9}},{{year | minus: 10}},{{year | minus: 11}},{{year | minus: 12}},{{year | minus: 13}},{{year | minus: 14}},{{year | minus: 15}},{{year | minus: 16}},{{year | minus: 17}},{{year | minus: 18}}{% endcapture %}
+	{% assign years = years | split: ',' %}
 	<select name="day">
-		{% if start > 1999 %}
-			<option value="{{ start }}">{{ start }}</option>
-			{% assign start = start | minus: 1 %}
-		{% endif %}
+		{% for count in years %}
+			<option value="{{ count }}">{{ count }}</option>
+		{% endfor %}
 	</select>
 
 </div>

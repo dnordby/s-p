@@ -64,6 +64,7 @@
   <!--[if lte IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
 
   {{ content_for_header }}
+  {{ 'style.scss' | asset_url | stylesheet_tag }}
 </head>
 
 <body class="template-{{ template | split: '.' | first }}">
@@ -101,5 +102,6 @@
     {% section 'footer' %}
 
   </div>
+  {{ 'app.js' | asset_url | script_tag }}
 </body>
 </html>
