@@ -1,0 +1,12 @@
+body.template-index {
+	.medium-up--one-third {
+		background-color: #FFFFFF;
+		margin: 0 12px;
+		padding: 12px;
+		width: calc((100% / 3) - 24px);
+		@media only screen and (max-width: 749px) {
+			padding: 0;
+			padding-left: 22px;
+		}
+	}
+}

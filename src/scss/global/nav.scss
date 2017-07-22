@@ -4,6 +4,19 @@
 	position: fixed;
 	width: 100vw;
 	z-index: 10;
+	.logo-align--left {
+		h1 {
+			text-align: center;
+			.site-header__logo-image {
+				display: inline-block;
+			}
+		}
+	}
+	#AccessibleNav {
+		.site-nav {
+			text-align: left;
+		}
+	}
 }
 
 #PageContainer {
