@@ -16,7 +16,7 @@ body.template-collection {
 				}
 				.medium-up--one-third,
 				.medium-up--one-half {
-					background-color: #FFFFFF;
+					background-color: $white;
 				  box-shadow: 2px 2px 10px 0 rgba(0,0,0,.16), 0 0 10px 0 rgba(0,0,0,.1);
 				  margin: 12px;
 				  padding: 0;
@@ -25,6 +25,16 @@ body.template-collection {
 				  	margin: 0 auto;
 				  	a {
 					  	padding: 24px;
+					  	&:hover {
+					  		opacity: 1;
+					  	}
+					  	.button {
+					  		margin-top: 24px;
+					  		width: 100%;
+					  		&:hover {
+
+					  		}
+					  	}
 					  }
 				  }
 				}
@@ -49,6 +59,18 @@ body.template-collection {
 				}
 			}
 		}
+		.collection-slider {
+			margin-top: 60px;
+			h3 {
+				text-align: center;
+			}
+			.grid__item {
+				padding: 12px;
+			}
+			@media only screen and (max-width: 749px) {
+				margin-top: 24px;
+			}
+		}
 	}
 }
 
@@ -60,7 +82,7 @@ body.template-page {
 	.main-content {
 		.page-width {
 			.grid {
-				background-color: #FFFFFF;
+				background-color: $white;
 			  box-shadow: 2px 2px 10px 0 rgba(0,0,0,.16), 0 0 10px 0 rgba(0,0,0,.1);
 			  padding: 60px 0;
 			}

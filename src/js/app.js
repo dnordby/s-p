@@ -4,3 +4,7 @@ require("./../scss/app.scss");
 
 // REQUIRE EACH JS MODULE
 require("./about.js");
+
+if ( $('body').hasClass('template-collection') ) {
+	require("./collection.js");
+}

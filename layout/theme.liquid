@@ -64,6 +64,9 @@
   <!--[if lte IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
 
   {{ content_for_header }}
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
   {{ 'style.scss' | asset_url | stylesheet_tag }}
 </head>
 
@@ -100,8 +103,7 @@
     </main>
 
     {% section 'footer' %}
-
+    {{ 'app.js' | asset_url | script_tag }}
   </div>
-  {{ 'app.js' | asset_url | script_tag }}
 </body>
 </html>

@@ -1,25 +1,53 @@
 #shopify-section-header {
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.07);
 	display: block;
 	overflow: hidden;
 	position: fixed;
 	width: 100vw;
 	z-index: 10;
-	.logo-align--left {
-		h1 {
-			text-align: center;
-			.site-header__logo-image {
-				display: inline-block;
+	.site-header {
+		background-color: rgba(255,255,255,0.95);
+		padding: 0 55px 0 0;
+		@media only screen and (max-width: 749px) {
+			padding: 0;
+		}
+		.logo-align--left {
+			background-color: $green;
+			h1,
+			.site-header__logo {
+				margin: 0;
+				text-align: center;
+				a {
+			    display: block;
+			    height: 100%;
+					max-width: none;
+					padding: 12px 0;
+			    position: relative;
+			    text-align: center;
+			    width: 100%;
+					img {
+						margin: 0 auto;
+						position: relative;
+					}
+				}
+				@media only screen and (max-width: 749px) {
+					padding-left: 0;
+				}
 			}
 		}
-	}
-	#AccessibleNav {
-		.site-nav {
-			text-align: left;
+		#AccessibleNav {
+			.site-nav {
+				margin: 0 12px;
+				text-align: left;
+				a {
+					padding: 0 12px
+				}
+			}
 		}
 	}
 }
 
 #PageContainer {
 	position: relative;
-	top: 84px;
+	top: 68px;
 }

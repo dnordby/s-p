@@ -1,6 +1,58 @@
+* {
+	&:active, &:visited, &:focus, &:hover {
+		outline: none;
+	}
+}
+
 a {
 	transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
 	&:hover {
 		transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
 	}
+}
+
+.btn,
+.button,
+button[type=submit] {
+	background-color: transparent;
+	border: 1px $grey solid;
+	border-radius: 3px;
+	color: $grey;
+	outline: none;
+	padding: 12px 24px;
+	text-transform: uppercase;
+	transition: all 0.3s ease-in-out;
+	&:hover {
+		background-color: $green;
+		border: 1px $green solid;
+		color: $white;
+		opacity: 1;
+		outline: none;
+		transition: all 0.3s ease-in-out;
+	}
+	&:active, &:visited, &:focus {
+		outline: none;
+	}
+	&.search__submit {
+		border: none;
+    display: inline-block;
+    height: 100%;
+    left: 0;
+    padding: 0 0 0 5px;
+    position: absolute;
+    top: 0;
+    vertical-align: middle;
+    z-index: 1;
+    &:hover {
+    	background-color: transparent;
+    	border: none;
+    }
+	}
+}
+
+input[type=text],
+input[type=email] {
+	border: 1px $grey solid;
+	position: relative;
+	right: -1px;
 }
