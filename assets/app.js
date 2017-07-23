@@ -49,11 +49,15 @@
 	__webpack_require__(5);
 
 	// REQUIRE EACH JS MODULE
-	__webpack_require__(6);
+	$(document).ready(function(){
+		if ( $('body').hasClass('template-collection') ) {
+			__webpack_require__(6);
+		}
 
-	if ( $('body').hasClass('template-collection') ) {
-		__webpack_require__(7);
-	}
+		if ( $('body').hasClass('template-product') ) {
+			__webpack_require__(8);
+		}
+	});
 
 /***/ }),
 /* 1 */
@@ -411,20 +415,10 @@
 
 /***/ }),
 /* 6 */
-/***/ (function(module, exports) {
-
-	function exportAbout() {
-	}
-
-	module.exports = exportAbout();
-
-
-/***/ }),
-/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	function exportCollection() {
-		__webpack_require__(8);
+		__webpack_require__(7);
 
 		function slidesPerView() {
 			var windowWidth = $(window).width();
@@ -457,7 +451,7 @@
 
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
@@ -5815,6 +5809,77 @@
 
 	//# sourceMappingURL=maps/swiper.js.map
 
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+	function exportProduct() {
+		function dateString() {
+			var month = ''
+			var day = ''
+			var year = ''
+			if ( $('.js-age-month').val() ) {
+				month = $('.js-age-month').val().toString();
+			}
+			if ( $('.js-age-day').val() ) {
+				day = $('.js-age-day').val().toString();
+			}
+			if ( $('.js-age-year').val() ) {
+				year = $('.js-age-year').val().toString();
+			}
+			var final_string = month + ' ' + day + ', ' + year;
+			return final_string
+		}
+
+		function updateDate() {
+			$('.js-age-month').change(function(){
+				var new_string = dateString();
+				$('.js-date-value').val(new_string);
+			});
+			$('.js-age-day').change(function(){
+				var new_string = dateString();
+				$('.js-date-value').val(new_string);
+			});
+			$('.js-age-year').change(function(){
+				var new_string = dateString();
+				$('.js-date-value').val(new_string);
+			});
+		}
+
+		function updateRange() {
+			$('.js-range-selector').change(function(){
+				var new_string = $(this).val();
+				$('.js-date-value').val(new_string);
+			});
+		}
+
+		updateDate();
+		updateRange();
+
+		$('.js-date-select').click(function(){
+			// RESET ALL VALUES
+			$('.js-date-value').prop('value','').val('');
+			$('.js-birthday-wrapper .input-wrapper select').each(function(){
+				$(this).val($(this).find('option:first')).val();
+			});
+			$('.js-range-wrapper .input-wrapper select').each(function(){
+				$(this).val($(this).find('option:first')).val();
+			});
+
+			// CONDITIONALLY HIDE/SHOW AND EXECUTE UPDATES
+			if ( $(this).hasClass('js-birthday') ) {
+				$('.js-birthday-wrapper').removeClass('visually-hidden');
+				$('.js-range-wrapper').addClass('visually-hidden');
+				
+			} else if ( $(this).hasClass('js-range') ) {
+				$('.js-range-wrapper').removeClass('visually-hidden');
+				$('.js-birthday-wrapper').addClass('visually-hidden');
+			}
+		});
+	}
+
+	module.exports = exportProduct();
 
 /***/ })
 /******/ ]);

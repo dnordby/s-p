@@ -1,0 +1,103 @@
+<div class="item-additional-detail-modal js-duplicate">
+
+	{% comment %} OPTIONAL NAME {% endcomment %}
+	<div class="child-name">
+		<div class="input-wrapper">
+			<label for="child-name">Child's Name (optional)</label>
+			<input type="text" id="child-name" name="properties[Name]">
+		</div>
+	</div>
+
+
+
+	{% comment %} AGE SELECTOR TOGGLE {% endcomment %}
+	<div class="age-toggle js-toggle-age-options">
+		<input type="hidden" class="js-date-value" value="" name="properties[Birthday/Age Range]">
+
+		<div class="input-wrapper">
+			<input type="radio" name="age-qualifyer" id="birthday" class="js-date-select js-birthday" checked>
+			<label for="birthday">Birthday</label>
+		</div>
+
+		<div class="input-wrapper">
+			<input type="radio" name="age-qualifyer" id="age-range" class="js-date-select js-range">
+			<label for="age-range">Age Range</label>
+		</div>
+	</div>
+	{% comment %} BIRTHDAY INPUT {% endcomment %}
+	<div class="js-birthday-wrapper birthday-wrapper">
+		<div class="input-wrapper">
+			<select name="month" class="js-age-month">
+				<option disabled selected value></option>
+				<option value="January">January</option>
+				<option value="February">February</option>
+				<option value="March">March</option>
+				<option value="April">April</option>
+				<option value="May">May</option>
+				<option value="June">June</option>
+				<option value="July">July</option>
+				<option value="August">August</option>
+				<option value="September">September</option>
+				<option value="October">October</option>
+				<option value="November">November</option>
+				<option value="December">December</option>
+			</select>
+		</div>
+
+		<div class="input-wrapper">
+			<select name="day" class="js-age-day">
+				{% assign days = ',1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31' %}
+				{% assign days = days | split: ',' %}
+				{% for day in days %}
+					<option value="{{ day }}">{{ day }}</option>
+				{% endfor %}
+			</select>
+		</div>
+
+		{% capture year %}{{ 'now' | date: "%Y" }}{% endcapture %}
+		{% capture years %}{{''}},{{year | plus: 1}},{{year}},{{year | minus: 1}},{{year | minus: 2}},{{year | minus: 3}},{{year | minus: 4}},{{year | minus: 5}},{{year | minus: 6}},{{year | minus: 7}},{{year | minus: 8}},{{year | minus: 9}},{{year | minus: 10}},{{year | minus: 11}},{{year | minus: 12}},{{year | minus: 13}},{{year | minus: 14}},{{year | minus: 15}},{{year | minus: 16}},{{year | minus: 17}},{{year | minus: 18}}{% endcapture %}
+		{% assign years = years | split: ',' %}
+		<div class="input-wrapper">
+			<select name="year" class="js-age-year">
+				{% for count in years %}
+					{% if count == '' %}
+						<option disabled selected value></option>
+					{% else %}
+						<option value="{{ count }}">{{ count }}</option>
+					{% endif %}
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+	{% comment %} AGE RANGE INPUT {% endcomment %}
+	<div class="js-range-wrapper visually-hidden">
+		<div class="input-wrapper">
+			<label for="ageRange"></label>
+			<select name="ageRange" id="ageRange" class="js-range-selector">
+				<option disabled selected value></option>
+				<option value="0 - 6 months">0 - 6 months</option>
+				<option value="6 - 12 months">6 - 12 months</option>
+				<option value="12 - 18 months">12 - 18 months</option>
+				<option value="18 - 24 months">18 - 24 months</option>
+				<option value="2 - 3 years">2 - 3 years</option>
+				<option value="3 - 4 years">3 - 4 years</option>
+			</select>
+		</div>
+	</div>
+
+	{% comment %} GENDER SELECT {% endcomment %}
+	<div class="child-gender">
+		<div class="input-wrapper">
+			<input type="radio" id="genderNeutral" name="properties[Gender]" value="Neutral" checked>
+			<label for="genderNeutral">Neutral</label>
+		</div>
+		<div class="input-wrapper">
+			<input type="radio" id="genderGirl" name="properties[Gender]" value="Girl">
+			<label for="genderGirl">Girl</label>
+		</div>
+		<div class="input-wrapper">
+			<input type="radio" id="genderBoy" name="properties[Gender]" value="Boy">
+			<label for="genderBoy">Boy</label>
+		</div>
+	</div>
+</div>

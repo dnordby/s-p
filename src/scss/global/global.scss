@@ -18,8 +18,9 @@ button[type=submit] {
 	border: 1px $grey solid;
 	border-radius: 3px;
 	color: $grey;
+	line-height: 1;
 	outline: none;
-	padding: 12px 24px;
+	padding: 14px 24px 12px;
 	text-transform: uppercase;
 	transition: all 0.3s ease-in-out;
 	&:hover {
