@@ -3,6 +3,7 @@
 	{% comment %} OPTIONAL NAME {% endcomment %}
 	<div class="child-name">
 		<div class="input-wrapper">
+			<img src="{{ 'icon-name.png' | asset_img_url: '200x' }}">
 			<label for="child-name">Child's Name (optional)</label>
 			<input type="text" id="child-name" name="properties[Name]">
 		</div>
@@ -12,17 +13,19 @@
 
 	{% comment %} AGE SELECTOR TOGGLE {% endcomment %}
 	<div class="age-toggle js-toggle-age-options">
+		<img src="{{ 'icon-birthday.png' | asset_img_url: '200x' }}">
 		<input type="hidden" class="js-date-value" value="" name="properties[Birthday/Age Range]">
 
-		<div class="input-wrapper">
+		<div class="input-wrapper radio">
 			<input type="radio" name="age-qualifyer" id="birthday" class="js-date-select js-birthday" checked>
 			<label for="birthday">Birthday</label>
 		</div>
 
-		<div class="input-wrapper">
+		<div class="input-wrapper radio">
 			<input type="radio" name="age-qualifyer" id="age-range" class="js-date-select js-range">
 			<label for="age-range">Age Range</label>
 		</div>
+		<p class="error js-error visually-hidden"></p>
 	</div>
 	{% comment %} BIRTHDAY INPUT {% endcomment %}
 	<div class="js-birthday-wrapper birthday-wrapper">
@@ -87,15 +90,18 @@
 
 	{% comment %} GENDER SELECT {% endcomment %}
 	<div class="child-gender">
-		<div class="input-wrapper">
+		<div class="input-wrapper radio">
+			<img src="{{ 'icon-neutral.png' | asset_img_url: '200x' }}">
 			<input type="radio" id="genderNeutral" name="properties[Gender]" value="Neutral" checked>
 			<label for="genderNeutral">Neutral</label>
 		</div>
-		<div class="input-wrapper">
+		<div class="input-wrapper radio">
+			<img src="{{ 'icon-female.png' | asset_img_url: '200x' }}">
 			<input type="radio" id="genderGirl" name="properties[Gender]" value="Girl">
 			<label for="genderGirl">Girl</label>
 		</div>
-		<div class="input-wrapper">
+		<div class="input-wrapper radio">
+			<img src="{{ 'icon-male.png' | asset_img_url: '200x' }}">
 			<input type="radio" id="genderBoy" name="properties[Gender]" value="Boy">
 			<label for="genderBoy">Boy</label>
 		</div>

@@ -5,7 +5,6 @@ body.template-page {
 		.page-width {
 			.grid {
 				background-color: $white;
-			  box-shadow: 2px 2px 10px 0 rgba(0,0,0,.16), 0 0 10px 0 rgba(0,0,0,.1);
 			  padding: 60px 0;
 			}
 		}
@@ -18,23 +17,70 @@ body.template-page {
 
 body.template-product {
 	.product-single {
+		text-align: center;
+		.product-single__photos {
+			margin: 0 auto;
+			width: calc(100% / 3);
+			@media only screen and (max-width: 749px) {
+				width: calc(100% / 3 * 2);
+			}
+		}
 		.details-wrapper {
 			form {
 				text-align: center;
 				width: 100%;
 				.item-additional-detail-modal {
 					> div {
+						&.child-name,
+						&.birthday-wrapper,
+						&.js-range-wrapper,
+						&.child-gender {
+							margin-bottom: 72px;
+							img,
+							.input-wrapper img {
+								display: block;
+								margin: 0 auto;
+							}
+						}
 						.input-wrapper {
 							display: block;
+							&.radio {
+								margin: 0 24px;
+							}
 							label, input, select {
 								display: inline-block;
 								max-width: 100%;
-								vertical-align: middle;
+								vertical-align: top;
 								width: auto;
 							}
 							input[type=email],
 							input[type=text] {
-								right: 0;
+								display: block;
+								margin: 0 auto;
+							}
+							input[type=radio] {
+								visibility: hidden;
+								&:before {
+									border: 2px solid $grey;
+									border-radius: 3px;
+									content: '';
+									display: inline-block;
+									height: 16px;
+									line-height: 24px;
+									margin-right: 6px;
+									position: relative;
+									top: 3px;
+									vertical-align: top;
+									visibility: visible;
+									width: 16px;
+								}
+								&:checked {
+									&:before {
+										background-color: $grey;
+										outline: 2px solid $white;
+										outline-offset: -4px;
+									}
+								}
 							}
 						}
 						&.age-toggle,
@@ -42,6 +88,19 @@ body.template-product {
 						&.birthday-wrapper {
 							.input-wrapper {
 								display: inline-block;
+							}
+						}
+						&.age-toggle {
+							img {
+								display: block;
+								margin: 0 auto;
+							}
+						}
+						&.child-gender {
+							.input-wrapper {
+								img {
+									cursor: pointer;
+								}
 							}
 						}
 					}
@@ -63,6 +122,9 @@ body.template-collection {
 		.page-width {
 			.grid {
 				margin-left: 0;
+				.grid__item {
+					clear: none;
+				}
 				&.grid--view-items {
 					margin-bottom: 24px;
 				}
@@ -108,6 +170,7 @@ body.template-collection {
 				@media only screen and (max-width: 749px) {
 					.medium-up--one-half,
 					.small--one-half {
+						clear: none;
 						width: calc(50% - 24px);
 						a {
 					  	padding: 24px;

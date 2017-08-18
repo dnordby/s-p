@@ -41,6 +41,10 @@ function exportProduct() {
 	updateDate();
 	updateRange();
 
+	$('.child-gender .input-wrapper img').click(function(){
+		$(this).closest('.input-wrapper').find('input').trigger('click');
+	});
+
 	$('.js-date-select').click(function(){
 		// RESET ALL VALUES
 		$('.js-date-value').prop('value','').val('');
@@ -59,6 +63,24 @@ function exportProduct() {
 		} else if ( $(this).hasClass('js-range') ) {
 			$('.js-range-wrapper').removeClass('visually-hidden');
 			$('.js-birthday-wrapper').addClass('visually-hidden');
+		}
+	});
+
+	$('#AddToCart').click(function(e){
+		e.preventDefault();
+		$('.js-toggle-age-options .js-error').text('').addClass('visually-hidden');
+		if ($('.js-date-value').val() == '') {
+			var error = "Please include a birthday or age range so we can create the perfect Skip and Play box!"
+			var scrollTo = $('.js-toggle-age-options').offset().top - ($(window).height()/2 - 80);
+			$('.js-toggle-age-options .js-error').text(error).removeClass('visually-hidden');
+
+			$('body').animate({scrollTop:scrollTo}, 500, 'swing');
+
+			$('.js-birthday-wrapper .input-wrapper select').each(function(){
+				$(this).addClass('error-state');
+			});
+		} else {
+			$('#AddToCartForm').submit();
 		}
 	});
 }

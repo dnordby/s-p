@@ -154,7 +154,8 @@
           {% endif %}
 
           <a href="/cart" class="site-header__cart">
-            {% include 'icon-cart' %}
+            {% comment %}{% include 'icon-cart' %}{% endcomment %}
+            <img src="{{ 'icon-cart.png' | asset_img_url: '40x' }}">
             <span class="visually-hidden">{{ 'layout.cart.title' | t }}</span>
             <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
             {% if cart.item_count > 0 %}
