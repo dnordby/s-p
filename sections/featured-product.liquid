@@ -212,7 +212,7 @@
 
 {% unless product == empty %}
   <script type="application/json" id="ProductJson-{{ section.id }}">
-    {{ product | json }}
+    {% include 'bold-product' | output: 'json' %}
   </script>
 {% endunless %}
 

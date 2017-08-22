@@ -1,3 +1,4 @@
+{% include 'bold-cart' %}
 <div class="page-width" data-section-id="{{ section.id }}" data-section-type="cart-template">
 
   {% if cart.item_count > 0 %}
@@ -15,6 +16,7 @@
         </thead>
         <tbody>
           {% for item in cart.items %}
+            {% include 'bold-cart-item' with item %}
             <tr class="cart__row border-bottom line{{ forloop.index }} cart-flex{% if forloop.first %} border-top{% endif %}">
               <td class="cart__image-wrapper cart-flex-item">
                 <a href="{{ item.url | within: collections.all }}">
@@ -41,18 +43,17 @@
                 {%- assign property_size = item.properties | size -%}
                 {% if property_size > 0 %}
                   <div class="cart__meta-text">
-                    {% for prop in item.properties %}
-                      <p>{{ prop.first }}: {{ prop.last }}</p>
-                    {% endfor %}
+                    {{ bold_item_properties }}
+                    {{ bold_recurring_desc }}
                   </div>
                 {% endif %}
 
                 <p class="small--hide">
-                  <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="btn btn--small btn--secondary cart__remove">{{ 'cart.general.remove' | t }}</a>
+                  <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="btn btn--small btn--secondary cart__remove {{ bold_remove_class }}">{{ 'cart.general.remove' | t }}</a>
                 </p>
               </td>
               <td class="cart__price-wrapper cart-flex-item">
-                {{ item.price | money }}
+                {{ bold_item_price | money }}
 
                 {% for discount in item.discounts %}
                   <div class="cart-item__discount medium-up--hide">{{ discount.title }}</div>
@@ -66,7 +67,7 @@
                 </div>
               </td>
               <td class="cart__update-wrapper cart-flex-item text-right">
-                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="btn btn--small btn--secondary cart__remove medium-up--hide">{{ 'cart.general.remove' | t }}</a>
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="btn btn--small btn--secondary cart__remove medium-up--hide {{ bold_remove_class }}">{{ 'cart.general.remove' | t }}</a>
                 <div class="cart__qty">
                   <label for="updates_{{ item.key }}" class="cart__qty-label">{{ 'cart.label.quantity' | t }}</label>
                   <input class="cart__qty-input" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" pattern="[0-9]*">
@@ -74,12 +75,12 @@
                 <input type="submit" name="update" class="btn btn--small cart__update medium-up--hide" value="{{ 'cart.general.update' | t }}">
               </td>
               <td class="text-right small--hide">
-                {% if item.original_line_price != item.line_price %}
+                {% if item.original_line_price != bold_item_line_price %}
                   <div class="cart-item__original-price"><s>{{ item.original_line_price | money }}</s></div>
                 {% endif %}
 
                 <div>
-                  {{ item.line_price | money }}
+                  {{ bold_item_line_price | money }}
                 </div>
 
                 {% for discount in item.discounts %}
@@ -102,7 +103,7 @@
           <div class="grid__item text-right small--text-center{% if section.settings.cart_notes_enable %} medium-up--one-half{% endif %}">
             <div>
               <span class="cart__subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
-              <span class="cart__subtotal">{{ cart.total_price | money }}</span>
+              <span class="cart__subtotal">{{ bold_cart_total_price | money }}</span>
             </div>
             {% if cart.total_discounts > 0 %}
               <div class="cart__savings">
@@ -111,11 +112,14 @@
               </div>
             {% endif %}
             <div class="cart__shipping">{{ 'cart.general.shipping_at_checkout' | t }}</div>
+            {{ bold_ro_cart }}
             <a href="collections/all" class="btn btn--secondary cart__update cart__continue--large small--hide" >{{ 'cart.general.continue_shopping' | t }}</a>
             <input type="submit" name="update" class="btn btn--secondary cart__update cart__update--large small--hide" value="{{ 'cart.general.update' | t }}">
             <input type="submit" name="checkout" class="btn btn--small-wide" value="{{ 'cart.general.checkout' | t }}">
-            {% if additional_checkout_buttons %}
-              <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
+            {% if additional_checkout_buttons and show_paypal %}
+              <div class="additional-checkout-buttons">
+                {{ content_for_additional_checkout_buttons }}
+              </div>
             {% endif %}
           </div>
         </div>

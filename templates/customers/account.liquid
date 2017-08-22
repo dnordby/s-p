@@ -7,6 +7,7 @@
   <div class="grid">
     <div class="grid__item medium-up--two-thirds">
       <h2>{{ 'customer.orders.title' | t }}</h2>
+      <p><a href="/tools/checkout/front_end/login" class="text-link">Manage Subscriptions</a></p>
 
       {% paginate customer.orders by 20 %}
         {% if customer.orders.size != 0 %}
