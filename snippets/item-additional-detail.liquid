@@ -93,6 +93,11 @@
 	{% comment %} GENDER SELECT {% endcomment %}
 	<div class="child-gender">
 		<div class="input-wrapper radio">
+			<img src="{{ 'icon-male.png' | asset_img_url: '200x' }}">
+			<input type="radio" id="genderBoy" name="properties[Gender]" value="Boy">
+			<label for="genderBoy">Boy</label>
+		</div>
+		<div class="input-wrapper radio">
 			<img src="{{ 'icon-neutral.png' | asset_img_url: '200x' }}">
 			<input type="radio" id="genderNeutral" name="properties[Gender]" value="Neutral" checked>
 			<label for="genderNeutral">Neutral</label>
@@ -101,11 +106,6 @@
 			<img src="{{ 'icon-female.png' | asset_img_url: '200x' }}">
 			<input type="radio" id="genderGirl" name="properties[Gender]" value="Girl">
 			<label for="genderGirl">Girl</label>
-		</div>
-		<div class="input-wrapper radio">
-			<img src="{{ 'icon-male.png' | asset_img_url: '200x' }}">
-			<input type="radio" id="genderBoy" name="properties[Gender]" value="Boy">
-			<label for="genderBoy">Boy</label>
 		</div>
 	</div>
 </div>

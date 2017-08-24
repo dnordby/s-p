@@ -126,7 +126,7 @@
         </nav>
       {% endif %}
 
-      <div class="grid__item small--one-half medium-up--one-sixth text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
+      <div class="grid__item small--one-half medium-up--one-eighth text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
         <div class="site-header__icons-wrapper">
           {% if section.settings.align_logo == 'left' %}
             <div class="site-header__search small--hide">
@@ -155,7 +155,7 @@
 
           <a href="/cart" class="site-header__cart">
             {% comment %}{% include 'icon-cart' %}{% endcomment %}
-            <img src="{{ 'icon-cart.png' | asset_img_url: '40x' }}">
+            {% include 'icon-cart' %}
             <span class="visually-hidden">{{ 'layout.cart.title' | t }}</span>
             <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
             {% if cart.item_count > 0 %}

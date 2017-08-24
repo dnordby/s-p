@@ -55,7 +55,7 @@ button[type=submit] {
   .btn.search__submit,
   .button.search__submit,
   button[type=submit].search__submit {
-    color: #D7E0E5; }
+    color: #000000; }
 
 h1 {
   font-weight: 500; }
@@ -78,7 +78,7 @@ input[type=email] {
   width: 100vw;
   z-index: 10; }
   #shopify-section-header .site-header {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 0 55px 0 0; }
     @media only screen and (max-width: 749px) {
       #shopify-section-header .site-header {
@@ -107,19 +107,22 @@ input[type=email] {
           #shopify-section-header .site-header .logo-align--left .site-header__logo {
             padding-left: 0; } }
     #shopify-section-header .site-header #AccessibleNav {
-      text-align: center; }
+      text-align: right; }
       #shopify-section-header .site-header #AccessibleNav .site-nav {
         display: inline-block;
-        margin: 0 12px;
-        text-align: center; }
-        #shopify-section-header .site-header #AccessibleNav .site-nav a {
-          padding: 0 12px; }
+        text-align: right; }
+        #shopify-section-header .site-header #AccessibleNav .site-nav li {
+          text-align: right; }
+          #shopify-section-header .site-header #AccessibleNav .site-nav li a {
+            padding: 0 12px; }
     #shopify-section-header .site-header .site-header__cart {
       margin-top: 3px; }
+      #shopify-section-header .site-header .site-header__cart .icon-cart {
+        width: 40px; }
 
 #PageContainer {
   position: relative;
-  top: 68px; }
+  top: 79px; }
 
 body.template-index .medium-up--one-third {
   background-color: #FFFFFF;
@@ -262,6 +265,22 @@ body.template-collection .main-content .collection-slider {
     text-align: center; }
   body.template-collection .main-content .collection-slider .grid__item {
     padding: 12px; }
+  body.template-collection .main-content .collection-slider .swiper-wrapper {
+    height: 144px; }
+    body.template-collection .main-content .collection-slider .swiper-wrapper .swiper-slide {
+      height: 100%; }
+      body.template-collection .main-content .collection-slider .swiper-wrapper .swiper-slide img {
+        left: 50%;
+        max-height: 100%;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%); }
   @media only screen and (max-width: 749px) {
     body.template-collection .main-content .collection-slider {
       margin-top: 24px; } }
+
+.pdp-hero-img,
+.plp-hero-img {
+  position: relative;
+  top: -55px; }

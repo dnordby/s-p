@@ -28,8 +28,8 @@
 {% paginate collection.products by limit %}
 
 <div data-section-id="{{ section.id }}" data-section-type="collection-template">
+  <img src="{{ settings.collection_header | img_url: 'master' }}" class="plp-hero-img">
   <header class="collection-header">
-
     {% if section.settings.show_collection_image and collection.image %}
       <div class="collection-hero">
         <div class="collection-hero__image" style="background-image: url({{ collection.image | img_url: '2048x600', crop: 'top' }});"></div>

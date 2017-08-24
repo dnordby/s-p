@@ -6,7 +6,7 @@
 	width: 100vw;
 	z-index: 10;
 	.site-header {
-		background-color: rgba(255,255,255,0.95);
+		background-color: rgba(255,255,255,0.8);
 		padding: 0 55px 0 0;
 		@media only screen and (max-width: 749px) {
 			padding: 0;
@@ -36,23 +36,28 @@
 			}
 		}
 		#AccessibleNav {
-			text-align: center;
+			text-align: right;
 			.site-nav {
 				display: inline-block;
-				margin: 0 12px;
-				text-align: center;
-				a {
-					padding: 0 12px
+				text-align: right;
+				li {
+					text-align: right;
+					a {
+						padding: 0 12px
+					}
 				}
 			}
 		}
 		.site-header__cart {
 			margin-top: 3px;
+			.icon-cart {
+				width: 40px;
+			}
 		}
 	}
 }
 
 #PageContainer {
 	position: relative;
-	top: 68px;
+	top: 79px;
 }

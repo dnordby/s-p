@@ -1,12 +1,13 @@
 <!-- /templates/product.liquid -->
 <div itemscope itemtype="http://schema.org/Product">
-
+  <img src="{{ settings.product_header | img_url: 'master' }}" class="pdp-hero-img">
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
 
   {% assign current_variant = product.selected_or_first_available_variant %}
 
   <div class="grid product-single image-wrapper">
+    
     <div class="grid__item large--one-half text-center">
       <div class="product-single__photos" id="ProductPhoto">
         {% assign featured_image = current_variant.featured_image | default: product.featured_image %}

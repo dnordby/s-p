@@ -423,11 +423,11 @@
 		function slidesPerView() {
 			var windowWidth = $(window).width();
 			if (windowWidth > 1199) {
-				return 8
+				return 5
 			} else if (windowWidth <= 1199 && windowWidth > 991) {
-				return 6
+				return 5
 			} else if (windowWidth <= 991 && windowWidth > 767) {
-				return 4
+				return 5
 			} else {
 				return 1
 			}
