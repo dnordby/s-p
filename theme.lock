@@ -51,6 +51,8 @@ assets/respond.min.js:
   development: 2017-06-28T19:07:50-04:00   a2684e9b8fa50d6d11c56a9ada068528
 assets/style.scss.liquid:
   development: 2017-08-23T20:53:39-04:00   701b2dab4eb42839bd456703db285d57
+assets/test.png:
+  development: 2017-08-24T19:52:59-04:00   9951a9d777ef7564818ceb2e9c665557
 assets/theme.js:
   development: 2017-06-06T18:08:29-04:00   4204af7ee431f20cc8c841bf27014cae
 assets/theme.scss.liquid:
@@ -72,7 +74,7 @@ config/index.js:
 config/package.json:
   development: 2017-06-28T19:08:23-04:00   343a2405b4c04538bfbca78b1e3057ad
 config/settings_data.json:
-  development: 2017-08-18T08:03:45-04:00   204b1c78baa221ae96e7233ce68f4ba6
+  development: 2017-08-24T19:38:30-04:00   14d453b27bfba884f22422a05e49de3a
 config/settings_schema.json:
   development: 2017-08-23T20:26:09-04:00   632467553eccba9167697f38cc5aff0e
 layout/gift_card.liquid:
@@ -80,7 +82,7 @@ layout/gift_card.liquid:
 layout/password.liquid:
   development: 2017-05-28T17:32:28-04:00   f403680b0aa8921493e38dac1f82d270
 layout/theme.liquid:
-  development: 2017-08-21T19:43:28-04:00   10610d023daf20831596cccc86c45bc5
+  development: 2017-08-24T08:09:29-04:00   28c5a97171e6493ce30b198a3dbbafc1
 locales/de.json:
   development: 2017-06-28T19:07:57-04:00   573aafe6f0d5eeb69c7edf598c7e450f
 locales/en.default.json:
@@ -116,7 +118,7 @@ sections/feature-row.liquid:
 sections/featured-blog.liquid:
   development: 2017-05-28T17:32:26-04:00   d05914197892c67f1832c1fd41964987
 sections/featured-product.liquid:
-  development: 2017-08-21T19:51:36-04:00   345a6b028a661ef488614621039f6bbd
+  development: 2017-08-24T08:04:51-04:00   345a6b028a661ef488614621039f6bbd
 sections/footer.liquid:
   development: 2017-06-27T18:10:31-04:00   9160da1fd86323981aa4b4deaef2cc71
 sections/header.liquid:
@@ -140,7 +142,7 @@ sections/password-footer.liquid:
 sections/password-header.liquid:
   development: 2017-05-28T17:32:27-04:00   e532899231637c182ee198dda324c6f2
 sections/product-template.liquid:
-  development: 2017-08-23T20:57:40-04:00   d9ba23d4511f52ad7001840ae26f4bcc
+  development: 2017-08-24T08:11:17-04:00   88dce1bf93d07bfb183e709c0f406511
 sections/quotes.liquid:
   development: 2017-06-28T19:08:12-04:00   b234ffff9a061befe87a0d69a121af1c
 sections/slideshow.liquid:
@@ -149,14 +151,22 @@ snippets/ajax-cart-template.liquid:
   development: 2017-06-28T19:08:45-04:00   e6fa15367ab47a164d9dc8e47353c684
 snippets/blog-sidebar.liquid:
   development: 2017-06-28T19:08:43-04:00   ae3891e372509ded7074e50b2a97f438
+snippets/body-background.liquid:
+  development: 2017-08-24T19:55:20-04:00   e66cd4b62f06fb7b6982f331522e1e38
 snippets/bold-cart-item.liquid:
   development: 2017-08-21T19:40:49-04:00   60a7a2a0ea2a8b9585604bc2976cc876
 snippets/bold-cart.liquid:
   development: 2017-08-21T19:40:25-04:00   0a912af54929aaea32f81587ac309339
 snippets/bold-common.liquid:
-  development: 2017-08-21T19:39:53-04:00   8feceafbe409eee0290aa4112ae84fff
+  development: 2017-08-24T08:08:33-04:00   c717f027b642fb90907698b24a08c2fc
+snippets/bold-product.liquid:
+  development: 2017-08-24T08:08:43-04:00   cc5e913a65e977352c7d3f8cc43321f8
 snippets/bold-ro-init.liquid:
-  development: 2017-08-21T19:41:11-04:00   83e246da27d29838142f083a3b081e9b
+  development: 2017-08-24T08:10:05-04:00   788853c92a267ccc7100cee20e532d77
+snippets/bold-ro.liquid:
+  development: 2017-08-24T08:07:38-04:00   81f294afdadde3d22c6fa7c2199d6f88
+snippets/bold-variant.liquid:
+  development: 2017-08-24T08:09:05-04:00   68936222a22a626d87f8e7e1330486fe
 snippets/breadcrumb.liquid:
   development: 2017-06-28T19:08:56-04:00   7bf89ebc6f2f46288fa59aa305a42514
 snippets/collection-grid-item.liquid:
@@ -362,6 +372,6 @@ templates/page.liquid:
 templates/password.liquid:
   development: 2017-05-28T17:32:30-04:00   30d1743d26765ce8c3fa53a3fdf9524f
 templates/product.liquid:
-  development: 2017-08-23T20:58:20-04:00   2e1f0ee40b3e30fe0f660b164eba5396
+  development: 2017-08-24T08:12:37-04:00   4c21911a6c78a9436a65b61f90ef86e1
 templates/search.liquid:
   development: 2017-05-28T17:32:30-04:00   6e8bfd01622f992bf20c908bfb83337d

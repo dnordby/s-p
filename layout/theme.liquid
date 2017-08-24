@@ -68,8 +68,11 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
   {{ 'style.scss' | asset_url | stylesheet_tag }}
-  {% include 'bold-common' %}
-  {% include 'bold-ro-init' %}
+{%- include 'bold-common' -%}
+
+{%- include 'bold-product' with product, hide_action: 'header' -%}
+
+{%- include 'bold-ro-init' -%}
 </head>
 
 <body class="template-{{ template | split: '.' | first }}">

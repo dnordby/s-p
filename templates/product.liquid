@@ -1,3 +1,5 @@
+{%- include 'bold-ro' -%}
+{%- include 'bold-product' with product -%}
 <!-- /templates/product.liquid -->
 <div itemscope itemtype="http://schema.org/Product">
   <img src="{{ settings.product_header | img_url: 'master' }}" class="pdp-hero-img">
@@ -67,7 +69,7 @@
 
           <label for="Quantity" class="quantity-selector visually-hidden">{{ 'products.product.quantity' | t }}</label>
           <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector visually-hidden">
-
+{{ bold_ro_widget }}
           <button type="submit" name="add" id="AddToCart" class="btn addtocart">Next</button>
         </form>
 
