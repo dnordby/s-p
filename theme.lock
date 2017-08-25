@@ -50,7 +50,7 @@ assets/respond-proxy.html:
 assets/respond.min.js:
   development: 2017-06-28T19:07:50-04:00   a2684e9b8fa50d6d11c56a9ada068528
 assets/style.scss.liquid:
-  development: 2017-08-23T20:53:39-04:00   701b2dab4eb42839bd456703db285d57
+  development: 2017-08-24T20:07:31-04:00   44f66a8689813b854b1c3fb00fd71743
 assets/test.png:
   development: 2017-08-24T19:52:59-04:00   9951a9d777ef7564818ceb2e9c665557
 assets/theme.js:
@@ -82,7 +82,7 @@ layout/gift_card.liquid:
 layout/password.liquid:
   development: 2017-05-28T17:32:28-04:00   f403680b0aa8921493e38dac1f82d270
 layout/theme.liquid:
-  development: 2017-08-24T08:09:29-04:00   28c5a97171e6493ce30b198a3dbbafc1
+  development: 2017-08-24T19:59:59-04:00   5c4f840cec999b79762651e8d73bd0af
 locales/de.json:
   development: 2017-06-28T19:07:57-04:00   573aafe6f0d5eeb69c7edf598c7e450f
 locales/en.default.json:

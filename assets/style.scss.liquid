@@ -70,6 +70,16 @@ input[type=email] {
   color: #ea2531;
   margin-bottom: 6px; }
 
+.body-background-static {
+  background-image: url("{{ 'test.png' | asset_img_url: 'master' }}");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+  z-index: 0; }
+
 #shopify-section-header {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
   display: block;

@@ -69,3 +69,14 @@ input[type=email] {
 	color: $red;
 	margin-bottom: 6px;
 }
+
+.body-background-static {
+	background-image: url("{{ 'test.png' | asset_img_url: 'master' }}");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	height: 100vh;
+	position: fixed;
+	width: 100vw;
+	z-index: 0;
+}
