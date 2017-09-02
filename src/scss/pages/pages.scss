@@ -6,6 +6,15 @@ body.template-page {
 			.grid {
 				background-color: $white;
 			  padding: 60px 0;
+			  @media only screen and (max-width: 749px) {
+			  	margin-left: 0;
+			  }
+			  .grid__item.medium-up--five-sixths.medium-up--push-one-twelfth {
+			  	@media only screen and (max-width: 749px) {
+			  		padding-left: 0;
+	  		    padding: 0 12px;
+			  	}
+			  }
 			}
 		}
 	}

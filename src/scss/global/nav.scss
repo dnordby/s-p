@@ -5,6 +5,10 @@
 	position: fixed;
 	width: 100vw;
 	z-index: 10;
+	@media only screen and (max-width: 749px) {
+		overflow: visible !important;
+		position: fixed;
+	}
 	.site-header {
 		background-color: rgba(255,255,255,0.8);
 		padding: 0 55px 0 0;
@@ -58,6 +62,14 @@
 }
 
 #PageContainer {
-	position: relative;
 	top: 79px;
+	@media only screen and (max-width: 749px) {
+		top: 75px;
+	}
+	position: relative;
+}
+
+.mobile-nav-wrapper.js-menu--is-open {
+	transform: none !important;
+  transform: translate3d(0px, 75px, 0px) !important;
 }
