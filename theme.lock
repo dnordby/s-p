@@ -54,7 +54,7 @@ assets/respond.min.js:
 assets/style.scss.liquid:
   development: 2017-09-02T10:41:17-04:00   02b92383f34a57bb320a1d8232ffa9a0
 assets/test.png:
-  development: 2017-08-31T12:20:00-04:00   9bbd86300eb5b0c1915c90c7647c5522
+  development: 2017-09-03T16:37:46-04:00   06e02cc26c8dad761a4b9e752fa536a6
 assets/theme.js:
   development: 2017-06-06T18:08:29-04:00   4204af7ee431f20cc8c841bf27014cae
 assets/theme.scss.liquid:
@@ -122,7 +122,7 @@ sections/featured-blog.liquid:
 sections/featured-product.liquid:
   development: 2017-08-24T08:04:51-04:00   345a6b028a661ef488614621039f6bbd
 sections/footer.liquid:
-  development: 2017-09-02T09:59:53-04:00   15bc3488d8d44480753069110aeac1b9
+  development: 2017-09-03T16:38:16-04:00   b93bfd89dd11d723f0d86a66396cd429
 sections/header.liquid:
   development: 2017-08-23T20:07:23-04:00   c3a1e891b8428022a9372c2179d2b6ec
 sections/hero.liquid:
