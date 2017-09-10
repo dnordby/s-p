@@ -26,10 +26,11 @@
         {%- assign column_width = grid_item_width -%}
       {% endif %}
     
-      {% if block.settings.button_link %}
-        <a href="{{ block.settings.button_link }}" class="">
-      {% endif %}
+      
         <div class="grid__item {{ column_width }} text-{{ section.settings.align_text }}" {{ block.shopify_attributes }}>
+          {% if block.settings.button_link %}
+            <a href="{{ block.settings.button_link }}" class="">
+          {% endif %}
           {% if block.settings.enable_image %}
             {% if block.settings.image != blank %}
               <p>
@@ -52,10 +53,10 @@
               {{ block.settings.button_label | escape }}
             
           {% endif %}
+          {% if block.settings.button_link %}
+            </a>
+          {% endif %}
         </div>
-      {% if block.settings.button_link %}
-        </a>
-      {% endif %}
     {% endfor %}
   </div>
 

@@ -1,0 +1,26 @@
+{% schema %}
+	{
+    "name": "Community Page Image Grid",
+    "class": "page-width community-image-grid",
+    "max_blocks": 9,
+    "blocks": [
+    	{
+    		"type": "image",
+        "name": "Image",
+        "settings": [
+		      {
+		      	"id": "community_image",
+		        "type": "image_picker",
+		        "label": "Image"
+		      }
+		    ]
+	    }
+    ]
+  }
+{% endschema %}
+
+{% for block in section.blocks %}
+	<div class="community-image-wrapper">
+		<img src="{{ block.settings.community_image | img_url: 'master' }}" class="community-image">
+	</div>
+{% endfor %}

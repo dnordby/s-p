@@ -1,5 +1,8 @@
 {% include 'bold-cart' %}
 <div class="page-width" data-section-id="{{ section.id }}" data-section-type="cart-template">
+  <div class="cart-hero-img">
+    <img src="{{ settings.cart_header | img_url: 'master' }}">
+  </div>
 
   {% if cart.item_count > 0 %}
     <div class="section-header text-center">

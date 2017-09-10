@@ -6,7 +6,7 @@ assets/ajax-cart.js.liquid:
 assets/ajax-loader.gif:
   development: 2017-05-28T17:32:28-04:00   deca8b0ecd6974227d157b6d7068995d
 assets/app.js:
-  development: 2017-09-02T09:51:56-04:00   ff959b3028f60fcf9854cc7ba1efae5e
+  development: 2017-09-09T10:53:57-04:00   ff959b3028f60fcf9854cc7ba1efae5e
 assets/bold-ro.js.liquid:
   development: 2017-08-21T19:42:33-04:00   fa2d64b0d50fbb56b1f34e0d164ba56a
 assets/fastclick.min.js:
@@ -52,7 +52,7 @@ assets/respond-proxy.html:
 assets/respond.min.js:
   development: 2017-06-28T19:07:50-04:00   a2684e9b8fa50d6d11c56a9ada068528
 assets/style.scss.liquid:
-  development: 2017-09-02T10:41:17-04:00   02b92383f34a57bb320a1d8232ffa9a0
+  development: 2017-09-10T12:24:29-04:00   7b7e8ae5c64b2eee07a78839104c1718
 assets/test.png:
   development: 2017-09-03T16:37:46-04:00   06e02cc26c8dad761a4b9e752fa536a6
 assets/theme.js:
@@ -78,7 +78,7 @@ config/package.json:
 config/settings_data.json:
   development: 2017-08-29T12:28:42-04:00   c58e49ec73f7a6011784c47ab8dd2abb
 config/settings_schema.json:
-  development: 2017-09-02T09:37:43-04:00   2ee8991b44cfe9725f5e5892a9b50639
+  development: 2017-09-10T11:44:24-04:00   392374e16ec106fcddcb2664234dcb1b
 layout/gift_card.liquid:
   development: 2017-05-28T17:32:28-04:00   876374b0950e11992ce087d1d2bad3c8
 layout/password.liquid:
@@ -102,19 +102,21 @@ sections/article-template.liquid:
 sections/blog-template.liquid:
   development: 2017-05-28T17:32:26-04:00   fa28b8ed255719a542d61f53ee3dac01
 sections/cart-template.liquid:
-  development: 2017-08-21T20:04:16-04:00   ec264fdebbb218d4be20d68bf198ae1a
+  development: 2017-09-10T11:43:52-04:00   4f0cbf1910db5e3631395a19cad0567f
 sections/collection-list.liquid:
   development: 2017-05-28T17:32:26-04:00   32101d3f3df7e75f4fe4da23ee3ec264
 sections/collection-slider.liquid:
   development: 2017-07-22T13:21:16-04:00   e46a5006bc3e8f7172bf458bbe32f774
 sections/collection-template.liquid:
-  development: 2017-08-23T20:53:06-04:00   7ae70e588b8b8a1d7d960615406d2f79
+  development: 2017-09-09T11:07:08-04:00   075ed58e19bd2a4aba4b35fada5be616
 sections/collection.liquid:
   development: 2017-05-28T17:32:26-04:00   c6f458c1329bea47ae3cbb08658c355e
+sections/community-image-grid.liquid:
+  development: 2017-09-10T12:01:55-04:00   48d4c8a6239a4133e2a94aa631e8c997
 sections/custom-content.liquid:
   development: 2017-05-28T17:32:26-04:00   998d36f53d3ebb250940ec56d887c989
 sections/feature-columns.liquid:
-  development: 2017-06-27T17:59:06-04:00   e9b9d0c13bbdf9bb8842542253852696
+  development: 2017-09-09T11:24:32-04:00   5306dd08037c3dcc2432c917d965a1da
 sections/feature-row.liquid:
   development: 2017-05-28T17:32:26-04:00   bedd6255398824bb0739a2544d1bfff6
 sections/featured-blog.liquid:
@@ -154,7 +156,7 @@ snippets/ajax-cart-template.liquid:
 snippets/blog-sidebar.liquid:
   development: 2017-06-28T19:08:43-04:00   ae3891e372509ded7074e50b2a97f438
 snippets/body-background.liquid:
-  development: 2017-08-24T19:55:20-04:00   e66cd4b62f06fb7b6982f331522e1e38
+  development: 2017-09-09T10:41:55-04:00   33087bb8f52aeaf75eaeef1e38d74d2a
 snippets/bold-cart-item.liquid:
   development: 2017-08-21T19:40:49-04:00   60a7a2a0ea2a8b9585604bc2976cc876
 snippets/bold-cart.liquid:
@@ -300,7 +302,7 @@ snippets/icon-we-create.liquid:
 snippets/icon-youtube.liquid:
   development: 2017-08-23T19:48:25-04:00   9d72c5bc3eaa14a3e7aefd921881b1ae
 snippets/item-additional-detail.liquid:
-  development: 2017-08-23T20:28:25-04:00   8c714b838c4ade4557ef076e8c5bcd10
+  development: 2017-09-10T10:57:34-04:00   f695464840f2ef0b7c868808a51bccbf
 snippets/no-blocks.liquid:
   development: 2017-05-28T17:32:29-04:00   0cb7d758b6df0feb07ae5804b4b627fa
 snippets/oldIE-js.liquid:
@@ -370,10 +372,10 @@ templates/list-collections.liquid:
 templates/page.contact.liquid:
   development: 2017-05-28T17:32:30-04:00   854f7fd02acf64bc9ce31bfd6994f791
 templates/page.liquid:
-  development: 2017-05-28T17:32:30-04:00   26f97d3355078de5c6678ed3b34ad7f6
+  development: 2017-09-10T11:48:23-04:00   aee4352c838c2be8492e5fdb525d4cdc
 templates/password.liquid:
   development: 2017-05-28T17:32:30-04:00   30d1743d26765ce8c3fa53a3fdf9524f
 templates/product.liquid:
-  development: 2017-08-24T08:12:37-04:00   4c21911a6c78a9436a65b61f90ef86e1
+  development: 2017-09-10T11:11:14-04:00   d1e7933d5a52b121cd80b3ceefcc5a26
 templates/search.liquid:
   development: 2017-05-28T17:32:30-04:00   6e8bfd01622f992bf20c908bfb83337d

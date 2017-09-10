@@ -2,7 +2,9 @@
 {%- include 'bold-product' with product -%}
 <!-- /templates/product.liquid -->
 <div itemscope itemtype="http://schema.org/Product">
-  <img src="{{ settings.product_header | img_url: 'master' }}" class="pdp-hero-img">
+  <div class="pdp-hero-img">
+    <img src="{{ settings.product_header | img_url: 'master' }}">
+  </div>
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
 
@@ -30,18 +32,29 @@
 
         </ul>
       {% endif %}
+      <div class="product-description rte" itemprop="description">
+        {{ product.description }}
+      </div>
+      <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+      <span id="ProductPrice" class="h2" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+        {{ current_variant.price | money }}
+      </span>
+
+      {% if product.compare_at_price_max > product.price %}
+        <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+        <p id="ComparePrice">
+          {{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
+        </p>
+      {% endif %}
     </div>
 
     <div class="grid__item large--one-half details-wrapper">
-      <hr>
       <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
         <meta itemprop="priceCurrency" content="{{ shop.currency }}">
 
         <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
 
         <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
-          {% include 'item-additional-detail' %}
-          
           <select name="id" id="productSelect" class="product-single__variants visually-hidden">
             {% for variant in product.variants %}
               {% if variant.available %}
@@ -55,28 +68,15 @@
             {% endfor %}
           </select>
 
-          <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
-          <span id="ProductPrice" class="h2" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
-            {{ current_variant.price | money }}
-          </span>
-
-          {% if product.compare_at_price_max > product.price %}
-            <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
-            <p id="ComparePrice">
-              {{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
-            </p>
-          {% endif %}
-
           <label for="Quantity" class="quantity-selector visually-hidden">{{ 'products.product.quantity' | t }}</label>
           <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector visually-hidden">
-{{ bold_ro_widget }}
+          <div class="visually-hidden">
+            {{ bold_ro_widget }}
+          </div>
+          {% include 'item-additional-detail' %}
           <button type="submit" name="add" id="AddToCart" class="btn addtocart">Next</button>
         </form>
 
-      </div>
-
-      <div class="product-description rte" itemprop="description">
-        {{ product.description }}
       </div>
 
       {% if collection %}
