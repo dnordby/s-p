@@ -296,7 +296,7 @@ body.template-collection {
 .cart-hero-img {
 	padding-top: 650px;
 	position: relative;
-	top: -55px;
+	top: -134px;
 	width: 100%;
 	img {
 		backface-visibility: hidden;
@@ -312,4 +312,9 @@ body.template-collection {
 	@media only screen and (max-width: 749px) {
 		padding-top: 488px;
 	}
+}
+
+.cart-hero-img {
+	left: -95px;
+	width: 100vw;
 }

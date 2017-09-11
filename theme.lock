@@ -52,7 +52,7 @@ assets/respond-proxy.html:
 assets/respond.min.js:
   development: 2017-06-28T19:07:50-04:00   a2684e9b8fa50d6d11c56a9ada068528
 assets/style.scss.liquid:
-  development: 2017-09-10T12:24:29-04:00   7b7e8ae5c64b2eee07a78839104c1718
+  development: 2017-09-10T20:48:45-04:00   aaf31c52a0d74cf3eb491bab79b68d4d
 assets/test.png:
   development: 2017-09-03T16:37:46-04:00   06e02cc26c8dad761a4b9e752fa536a6
 assets/theme.js:
@@ -130,7 +130,7 @@ sections/header.liquid:
 sections/hero.liquid:
   development: 2017-05-28T17:32:27-04:00   51d85eb2d1bfca44ecb1aa1c15506d3a
 sections/image-bar.liquid:
-  development: 2017-05-28T17:32:27-04:00   761ac1ba18fdb2f4e15a6b14948b3c10
+  development: 2017-09-10T20:34:03-04:00   c4386318fb925639772303a8a411c14c
 sections/list-collections-template.liquid:
   development: 2017-05-28T17:32:27-04:00   3039da18483e52dcf6e6d354ac533cb6
 sections/logo-bar.liquid:
@@ -150,7 +150,7 @@ sections/product-template.liquid:
 sections/quotes.liquid:
   development: 2017-06-28T19:08:12-04:00   b234ffff9a061befe87a0d69a121af1c
 sections/slideshow.liquid:
-  development: 2017-05-28T17:32:27-04:00   42042acf3099564a4fa871a9f6886b79
+  development: 2017-09-10T20:34:16-04:00   1a9e10660b6e33e70950be30aa68ece2
 snippets/ajax-cart-template.liquid:
   development: 2017-06-28T19:08:45-04:00   e6fa15367ab47a164d9dc8e47353c684
 snippets/blog-sidebar.liquid:
@@ -302,7 +302,7 @@ snippets/icon-we-create.liquid:
 snippets/icon-youtube.liquid:
   development: 2017-08-23T19:48:25-04:00   9d72c5bc3eaa14a3e7aefd921881b1ae
 snippets/item-additional-detail.liquid:
-  development: 2017-09-10T10:57:34-04:00   f695464840f2ef0b7c868808a51bccbf
+  development: 2017-09-10T20:36:04-04:00   8e1a3fd73bbda6c2479b49453570ccca
 snippets/no-blocks.liquid:
   development: 2017-05-28T17:32:29-04:00   0cb7d758b6df0feb07ae5804b4b627fa
 snippets/oldIE-js.liquid:
