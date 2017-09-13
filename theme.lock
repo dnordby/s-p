@@ -52,7 +52,7 @@ assets/respond-proxy.html:
 assets/respond.min.js:
   development: 2017-06-28T19:07:50-04:00   a2684e9b8fa50d6d11c56a9ada068528
 assets/style.scss.liquid:
-  development: 2017-09-10T20:48:45-04:00   aaf31c52a0d74cf3eb491bab79b68d4d
+  development: 2017-09-13T08:02:49-04:00   00974bc38b1676efdefb2a524bf0601e
 assets/test.png:
   development: 2017-09-03T16:37:46-04:00   06e02cc26c8dad761a4b9e752fa536a6
 assets/theme.js:

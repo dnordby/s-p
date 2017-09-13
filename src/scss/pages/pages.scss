@@ -92,6 +92,10 @@ body.template-product {
 				width: calc(100% / 3 * 2);
 			}
 		}
+		.product-description {
+			margin: 0 auto 24px;
+			max-width: 50%;
+		}
 		.details-wrapper {
 			form {
 				text-align: center;
