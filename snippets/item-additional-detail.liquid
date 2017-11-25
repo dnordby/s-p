@@ -1,26 +1,51 @@
 {% capture product_handle %}{{ product.handle }}{% endcapture %}
+{% assign include_name = false %}
+{% assign include_age_selector = false %}
+{% assign include_age_range = false %}
+{% assign include_gender = false %}
+
+{% for tag in product.tags %}
+	{% assign product_tag = tag | downcase %}
+	{% if product_tag == 'option: name' %}
+		{% assign include_name = true %}
+	{% endif %}
+
+	{% if product_tag == 'option: age selector' %}
+		{% assign include_age_selector = true %}
+	{% endif %}
+
+	{% if product_tag == 'option: age range' %}
+		{% assign include_age_range = true %}
+	{% endif %}
+
+	{% if product_tag == 'option: gender' %}
+		{% assign include_gender = true %}
+	{% endif %}
+
+{% endfor %}
 
 <div class="item-additional-detail-modal js-duplicate">
 	<div class="ro_widget"></div>
 
 	{% comment %} OPTIONAL NAME {% endcomment %}
-	<div class="child-name">
-		<div class="input-wrapper">
-			<img src="{{ 'icon-name.png' | asset_img_url: '200x' }}">
-			{% if product_handle == 'baby-shower-box' %}
-				<label for="child-name">Sender's Name</label>
-				<input type="text" id="child-name" name="properties[Sender's Name]">
-			{% else %}
-				<label for="child-name">Child's Name (optional)</label>
-				<input type="text" id="child-name" name="properties[Name]">
-			{% endif %}
+	{% if include_name %}
+		<div class="child-name">
+			<div class="input-wrapper">
+				<img src="{{ 'icon-name.png' | asset_img_url: '200x' }}">
+				{% if product_handle == 'baby-shower-box' %}
+					<label for="child-name">Sender's Name</label>
+					<input type="text" id="child-name" name="properties[Sender's Name]">
+				{% else %}
+					<label for="child-name">Child's Name (optional)</label>
+					<input type="text" id="child-name" name="properties[Name]">
+				{% endif %}
+			</div>
 		</div>
-	</div>
+	{% endif %}
 
-
-	{% unless product_handle == 'baby-shower-box' %}
+	{% if include_age_selector or include_age_range %}
 		{% comment %} AGE SELECTOR TOGGLE {% endcomment %}
-		{% if product_handle == 'birthday-box' %}
+		{% if include_age_range %}
 			<div class="birthday-box-age">
 				<img src="{{ 'icon-birthday.png' | asset_img_url: '200x' }}">
 				<div class="birthday-box-age-value">
@@ -36,7 +61,7 @@
 					</div>
 				</div>
 			</div>
-		{% else %}
+		{% elsif include_age_selector %}
 			<div class="age-toggle js-toggle-age-options">
 				<img src="{{ 'icon-birthday.png' | asset_img_url: '200x' }}">
 				<input type="hidden" class="js-date-value" value="" name="properties[Birthday/Age Range]">
@@ -113,25 +138,27 @@
 				</div>
 			</div>
 		{% endif %}
-	{% endunless %}
+	{% endif %}
 
 	{% comment %} GENDER SELECT {% endcomment %}
-	<div class="child-gender">
-		<div class="input-wrapper radio">
-			<img src="{{ 'icon-male.png' | asset_img_url: '200x' }}">
-			<input type="radio" id="genderBoy" name="properties[Gender]" value="Boy">
-			<label for="genderBoy">Boy</label>
+	{% if include_gender %}
+		<div class="child-gender">
+			<div class="input-wrapper radio">
+				<img src="{{ 'icon-male.png' | asset_img_url: '200x' }}">
+				<input type="radio" id="genderBoy" name="properties[Gender]" value="Boy">
+				<label for="genderBoy">Boy</label>
+			</div>
+			<div class="input-wrapper radio">
+				<img src="{{ 'icon-neutral.png' | asset_img_url: '200x' }}">
+				<input type="radio" id="genderNeutral" name="properties[Gender]" value="Neutral" checked>
+				<label for="genderNeutral">Neutral</label>
+			</div>
+			<div class="input-wrapper radio">
+				<img src="{{ 'icon-female.png' | asset_img_url: '200x' }}">
+				<input type="radio" id="genderGirl" name="properties[Gender]" value="Girl">
+				<label for="genderGirl">Girl</label>
+			</div>
 		</div>
-		<div class="input-wrapper radio">
-			<img src="{{ 'icon-neutral.png' | asset_img_url: '200x' }}">
-			<input type="radio" id="genderNeutral" name="properties[Gender]" value="Neutral" checked>
-			<label for="genderNeutral">Neutral</label>
-		</div>
-		<div class="input-wrapper radio">
-			<img src="{{ 'icon-female.png' | asset_img_url: '200x' }}">
-			<input type="radio" id="genderGirl" name="properties[Gender]" value="Girl">
-			<label for="genderGirl">Girl</label>
-		</div>
-	</div>
-	
+	{% endif %}
+
 </div>
