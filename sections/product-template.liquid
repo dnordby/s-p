@@ -1,3 +1,6 @@
+{% assign subscription_only_arr = product | map: 'variants' | map: 'metafields' | map: 'bold_rp' | map: 'rp_subscription_only' | uniq %}
+{% if subscription_only_arr[0] == 1 or subscription_only_arr[1] == 1 %}
+{% assign subscription_only = true %}<style>.slowload{display: none !important;}</style><script>BOLD.recurring_orders.app.ee.onOut('BOLD_RECURRING_ORDERS_widget_loaded', function(response){$(response.data.form).find('.slowload').removeClass('slowload');});</script>{% endif %}
 <div class="product-template__container page-width" itemscope itemtype="http://schema.org/Product" id="ProductSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true">
   <meta itemprop="name" content="{{ product.title }}">
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
@@ -154,7 +157,7 @@
             <div class="product-form__item product-form__item--submit">
            
               {{ bold_ro_widget }}
-              <button type="submit" name="add" id="AddToCart-{{ section.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %} class="btn product-form__cart-submit{% if product.options.size == 1 and product.variants[0].title == 'Default Title' %} product-form__cart-submit--small{% endif %}">
+              <button type="submit" name="add" id="AddToCart-{{ section.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %} class="btn test {% if subscription_only %}slowload{% endif %} product-form__cart-submit{% if product.options.size == 1 and product.variants[0].title == 'Default Title' %} product-form__cart-submit--small{% endif %}">
                 <span id="AddToCartText-{{ section.id }}">
                   {% unless current_variant.available %}
                     {{ 'products.product.sold_out' | t }}

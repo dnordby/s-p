@@ -1,6 +1,6 @@
 {%- comment -%}
 BOLD-VARIANT.LIQUID
-Last updated: 2017-March-06
+Last updated: 2017-October-26
 
 Sets all appropriate liquid varaibles for Bold Apps that affect the variant.
 Creates an updated JSON object that includes key information relating to our apps.
@@ -8,10 +8,12 @@ Combines the functionality of bold-hidden-variants, bold-base-variant and bold-v
 
 FLAGS:
   base_product:      {product object}                          Base product object for the variant, used to check/set several properties. If not supplied, defaults to bold_product. If no bold_product is set, defaults to product
+  line_item:         {line item object} | null (default)       If set, pass the line item to the included snippets - some apps may adjust prices differently depending on whether we're influencing the cart total or not
   output:            'json' | 'none'  (default)                Controls whether anything is printed to the DOM
   hide_action:       'skip' | 'none'  (default)                Forces a 'continue' to skip hidden variants when 'skip' is set
   customer_tag:      {string} | null (default)                 If set, forces bold-variant to calculate as though the customer had the specified tag
   price_style:       'json' | null (default)                   If set, sets prices as '10.00' instead of 1000
+  custom_app_list:   {string} | null (default)                 List of apps to apply to the price. Associated snippets will be automatically included.  If not specified, will check for a shop metafield to get a list of all relevant apps that need to be included.
   third_party_check: false | true (default)                    If true, runs additional checks that we know about to be compatible with third-party apps
   addional_includes: {string} | null (default)                 Additional snippets that need to be included after the initial liquid variable assignments (comma-delimited)
 
@@ -27,10 +29,33 @@ FLAGS:
 {%- comment -%} Assign flags to their default values if not set {%- endcomment -%}
 
 {%- assign bold_variant = bold-variant | default: variant -%}
-{%- assign bold_variant_base_product = base_product | default: bold_product | default: product | default: item.product | default: item -%}
+{%- assign bold_variant_line_item = line_item | default: false -%}
+{%- assign bold_variant_base_product = base_product | default: bold_product | default: bold_variant_line_item.product | default: product | default: item.product | default: item -%}
 {%- assign bold_variant_output = output | default: 'none' -%}
 {%- assign bold_variant_hide_action = hide_action | default: 'none' -%}
-{%- assign bold_variant_customer_tag = customer_tag | default: csp_customer_tag | default: 'default' -%}
+{%- assign bold_variant_customer_tag = customer_tag | default: csp_customer_tag -%}
+
+{%- assign app_list = '' -%}
+{%- if app_list != blank and custom_app_list != blank -%}
+  {%- assign bold_variant_app_list = app_list | append: ',' | append: custom_app_list -%}
+{%- else -%}
+  {%- assign bold_variant_app_list = app_list | default: custom_app_list | default: false -%}
+{%- endif -%}
+
+{%- assign bold_variant_price = bold_variant.price -%}
+
+{%- if bold_variant_app_list -%}
+
+  {%- assign bold_variant_app_list = bold_variant_app_list | split: ',' -%}
+  {%- for app in bold_variant_app_list -%}
+    {%- assign snippet_title = 'bold-' | append: app | append: '-variant' -%}
+    {%- capture silence_output -%}
+        {%- include snippet_title with bold_variant, base_product: bold_variant_base_product, line_item: bold_variant_line_item, customer_tag: bold_variant_customer_tag -%}
+    {%- endcapture -%}
+  {%- endfor -%}
+
+{%- endif -%}
+
 
 {%- comment -%} Find the base variant and base variant's inventory {%- endcomment -%}
 
@@ -74,8 +99,9 @@ FLAGS:
   {%- assign bold_variant_available = bold_variant.available -%}
 {%- endif -%}
 
+
 {%- comment -%} If we're calling this from bold-cart-item, also set the max quantity the line item can go up to {%- endcomment -%}
-{%- if bold_item -%}
+{%- if bold_item and bold_variant_inventory_management != blank and bold_variant_inventory_policy == 'deny' -%}
   {%- assign bold_item_max_quantity = bold_item.quantity | plus: bold_variant_remaining_quantity -%}
 {%- else -%}
   {%- assign bold_item_max_quantity = '' -%}
@@ -190,7 +216,7 @@ null,
 "inventory_remaining":{{- bold_variant_remaining_quantity | default: bold_variant_inventory_quantity | default: bold_variant.inventory_quantity | json -}},
 "incoming":{{- bold_variant.incoming | default: bold_base_variant.incoming | json -}},
 "next_incoming_date":{{- bold_variant.next_incoming_date  | default: bold_base_variant.next_incoming_date | date: "%Y-%m-%d" | json -}},
-"taxable":{{- bold_variant.taxable | json -}},
+"taxable":{%- unless bold_variant_taxable == blank -%}{{- bold_variant_taxable | json -}}{%- else -%}{{- bold_variant.taxable | json -}}{%- endunless -%},
 "barcode":{{- variant.barcode | json -}}
 {%- comment -%} SPECIAL HANDLING FOR CSP {%- endcomment -%}
 {%- if variant_has_csp -%}

@@ -162,9 +162,17 @@
 
       <div class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
         {% for product in collection.products %}
-          <div class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-            {% include 'product-card-grid', grid_image_width: image_size %}
-          </div>
+          {% assign hidden_product = false %}
+          {% for tag in product.tags %}
+            {% if tag contains 'hidden:true' %}
+              {% assign hidden_product = true %}
+            {% endif %}
+          {% endfor %}
+          {% unless hidden_product %}
+            <div class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+              {% include 'product-card-grid', grid_image_width: image_size %}
+            </div>
+          {% endunless %}
         {% else %}
           {% comment %}
           Add default products to help with onboarding for collections/all only.

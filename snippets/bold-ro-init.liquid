@@ -1,4 +1,5 @@
 <script>
+
   var BOLD = BOLD || {};
   BOLD.recurring_orders = BOLD.recurring_orders || {};
   if(typeof BOLD.recurring_orders.setSettings !== 'undefined') {
@@ -10,12 +11,14 @@
        loadingEnabled: true
      };
    }
+
   BOLD.recurring_orders.modes = {
     current_mode:{{ shop.metafields.bold_rp.recurring_type | json }},
     recurring_cart:0,
     single_product:1,
     mixed_cart:2
   };
+
   BOLD.customer = BOLD.customer || {};
   BOLD.customer.id = {{ customer.id | json }} || '';
   BOLD.customer.email= {{ customer.email | json }} || '';
@@ -30,11 +33,24 @@
   BOLD.customer.province = {{ customer.default_address.province | json }} || '';
   BOLD.customer.zip = {{ customer.default_address.zip | json }} || '';
   BOLD.customer.tags = {{ customer.tags | json }} || '';
+
+
   {% assign recurring_list = cart.items | map: 'properties' | map: 'frequency_num' | uniq %}
   {% if recurring_list.length > 1 or recurring_list[0] != blank %}
     {% assign is_mixed_cart = true %}
   {% endif %}
   window.mixed_cart = {{ is_mixed_cart | json }};
 </script>
-
-{{ 'bold-ro.js' | asset_url | script_tag }}
+<script>
+if (typeof BOLD.recurring_orders.setSettings !== 'undefined') {
+    BOLD.recurring_orders.setSettings({
+        previewEnabled: true
+    }, true);
+} else {
+    BOLD = BOLD || {};
+    BOLD.recurring_orders = BOLD.recurring_orders || {};
+    BOLD.recurring_orders.settings = {
+        previewEnabled: true
+    };
+}
+</script>

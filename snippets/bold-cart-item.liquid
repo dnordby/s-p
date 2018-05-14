@@ -1,5 +1,5 @@
 <!-- bold-cart-item.liquid -->
-{% comment %} Last updated 2017-June-8th {% endcomment %}
+{% comment %} Last updated 2017-Aug-31 {% endcomment %}
 {% capture bold_cart_item_liquid %}
 {% comment %}
 BOLD-CART-ITEM.LIQUID - Universal Bold Cart Updater
@@ -71,6 +71,10 @@ To use this file:
 {% assign bold_item = bold-cart-item %}
 {% assign bold_item_price = bold_item.price %}
 {% assign bold_item_quantity = bold_item.quantity %}
+
+
+{% include 'bold-variant' with bold_item.variant, base_product: bold_item.product, line_item: bold_item %}
+{% assign bold_item_price = bold_variant_price | default: bold_item_price %}
 
 
 {% assign bold_hidden_item = false %}
@@ -225,7 +229,7 @@ To use this file:
           {% endif %}
 
           {% comment %} CHECK FOR ALL THE REASONS WE MIGHT HIDE THIS PROPERTY FROM THE DISPLAY {% endcomment %}
-          {% if p.first == "frequency_type_text" or p.first == "frequency_type" or p.first =="frequency_num" or p.first == "builder_id" or p.first == "builder_info" or p.first == "master_builder" or p.first == "group_id" or p.first == "discounted_price" or underscore_hidden == true or p.last == blank %}
+          {% if p.first == 'total_recurrences' or p.first == "frequency_type_text" or p.first == "frequency_type" or p.first == "frequency_num" or p.first == "builder_id" or p.first == "builder_info" or p.first == "master_builder" or p.first == "group_id" or p.first == "discounted_price" or p.first == "is_prepaid" or underscore_hidden == true or p.last == blank %}
             {% if p.first contains "builder_info" %}
                 {% assign bold_builder_product = true %}
                 {% if p.first == 'builder_info' %}
@@ -270,9 +274,9 @@ To use this file:
     {% else %}
 		{% unless bold_item.properties._convertible_discount_percent%}
 			<div class = "bold_recurring_desc">
-				<span class="bold_ro_every">Every</span>
-				<span class="bold_ro_frequency_num">{{ bold_item.properties.frequency_num}}</span>
-				<span class="bold_ro_frequency_type_text">{{ bold_item.properties.frequency_type_text }}</span>
+				<span class="bold_ro_every">Every </span>
+				<span class="bold_ro_frequency_num">{{ bold_item.properties.frequency_num}} </span>
+				<span class="bold_ro_frequency_type_text">{{ bold_item.properties.frequency_type_text }} </span>
 				{% if bold_item.properties.discounted_price %}<span class="discounted_price_in_cart">{{ bold_item_price | money }}</span><span class="bold_ro_each"> each</span>{% endif %}
 				{% if bold_item.properties._secondary_discount_percent %}
 				  {% assign bold_ro_secondary_discount_multiplier = 100.00 | minus: bold_item.properties._secondary_discount_percent | times: 0.01 %}
@@ -280,21 +284,21 @@ To use this file:
 				  <br>
 				  {% if bold_item.properties._secondary_discount_required_orders == '1' %}
 					{% if bold_ro_secondary_discount_price < bold_item.price %}
-						<span class="bold_ro_is_discount">Discounted price</span>
+						<span class="bold_ro_is_discount">Discounted price </span>
 					{% else %}
-						<span class="bold_ro_no_discount">Price</span> 
+						<span class="bold_ro_no_discount">Price </span>
 					{% endif %}
-					<span class="bold_ro_price_after_first">after first order</span>
+					<span class="bold_ro_price_after_first">after first order </span>
 					<span class="bold_ro_secondary_discount_price">{{bold_ro_secondary_discount_price | money}}</span>
 				  {% else %}
 					{% if bold_ro_secondary_discount_price < bold_item.price %}
-						<span class="bold_ro_is_discount">Discounted price</span>
+						<span class="bold_ro_is_discount">Discounted price </span>
 					{% else %}
-						<span class="bold_ro_no_discount">Price</span>
+						<span class="bold_ro_no_discount">Price </span>
 					{% endif %}
-					<span class="bold_ro_price_after_multiple">after</span>
-					<span class="bold_ro_secondary_discount_required_orders">{{bold_item.properties._secondary_discount_required_orders}}</span>
-					<span class="bold_ro_secondary_discount_orders">orders:</span>
+					<span class="bold_ro_price_after_multiple">after </span>
+					<span class="bold_ro_secondary_discount_required_orders">{{bold_item.properties._secondary_discount_required_orders}} </span>
+					<span class="bold_ro_secondary_discount_orders">orders: </span>
 					<span class="bold_ro_secondary_discount_price">{{bold_ro_secondary_discount_price | money}}</span>
 				  {% endif %}
 				{% endif %}
@@ -311,17 +315,21 @@ To use this file:
 				{% if var.title != 'Default Title' %}
 					{% assign bold_ro_convertible_title = bold_ro_convertible_title | append: ' - ' | append: var.title %}
 				{% endif %}
-			  {%endif%}
-			{%endfor%}
+			  {% endif %}
+			{% endfor %}
 			{% assign bold_ro_convertible_discount_price = bold_ro_convertible_product_price | times: bold_ro_convertible_multiplier %}
-			<span class="bold_ro_conversion">Converts to:</span>
-			<span class="bold_ro_convert_initial_product">{{bold_ro_convertible_title}}</span>
+			<span class="bold_ro_conversion">Converts to: </span>
+			<span class="bold_ro_convert_initial_product">{{bold_ro_convertible_title}} </span>
 			<span class="converted_discounted_price_in_cart">{{ bold_ro_convertible_discount_price | money }}</span>
 			<br>
-			<span class="bold_ro_deliver_every">Deliver every</span>
-			<span class="bold_ro_frequency_num">{{ bold_item.properties.frequency_num}}</span>
+			<span class="bold_ro_deliver_every">Deliver every </span>
+			<span class="bold_ro_frequency_num">{{ bold_item.properties.frequency_num}} </span>
 			<span class="bold_ro_frequency_type_text">{{ bold_item.properties.frequency_type_text }}</span>
+			<br>
 		{% endif%}
+		{% if bold_item.properties.total_recurrences %}
+			<span class="bold_ro_total_recurrences_label">Your subscription will last for {{ bold_item.properties.total_recurrences }} shipments</span>
+		{% endif %}
     {% endunless %}
   {% endif %}
 
@@ -337,6 +345,20 @@ To use this file:
     <input type="hidden" name="quantity[{{ forloop.index0 }}]" value="{{ bold_item.quantity }}">
 {% endcapture %}
 
+{% comment %} EXPOSE DATA FOR RO CONVERTIBLE ITEM {% endcomment %}
+{% if bold_item.properties._convertible_product_handle != blank %}
+    <script>
+        BOLD = BOLD || {};
+        BOLD.recurring_orders = BOLD.recurring_orders || {};
+        BOLD.recurring_orders.convertible_products = BOLD.recurring_orders.convertible_products || {};
+        BOLD.recurring_orders.convertible_products['{{bold_item.properties._convertible_product_handle}}'] = {{ all_products[bold_item.properties._convertible_product_handle] | json }};
+    </script>
+{% endif %}
+
+{% comment %} GENERATE BOLD DESCRIPTION {% endcomment %}
+{% capture bold_desc %}
+    <span class="bold-cart-item" data-product-id="{{bold_item.id}}-{{forloop.index0}}"></span>
+{% endcapture %}
 
 {% comment %} GENERATE VARIABLES FOR BUILDER {% endcomment %}
 {% if bold_builder_product %}

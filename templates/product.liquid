@@ -1,4 +1,4 @@
-{%- include 'bold-ro' -%}
+
 {%- include 'bold-product' with product -%}
 <!-- /templates/product.liquid -->
 <div itemscope itemtype="http://schema.org/Product">
@@ -71,10 +71,14 @@
           <label for="Quantity" class="quantity-selector visually-hidden">{{ 'products.product.quantity' | t }}</label>
           <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector visually-hidden">
           <div class="visually-hidden">
-            {{ bold_ro_widget }}
+            <div class="ro_widget"></div>
           </div>
           {% include 'item-additional-detail' %}
-          <button type="submit" name="add" id="AddToCart" class="btn addtocart">Next</button>
+          {% assign subscription_only_arr = product | map: 'variants' | map: 'metafields' | map: 'bold_rp' | map: 'rp_subscription_only' | uniq %}
+          {% if subscription_only_arr[0] == 1 or subscription_only_arr[1] == 1 %}
+          {% assign subscription_only = true %}<style>.slowload{display: none !important;}</style><script>BOLD.recurring_orders.app.ee.onOut('BOLD_RECURRING_ORDERS_widget_loaded', function(response){$(response.data.form).find('.slowload').removeClass('slowload');});</script>{% endif %}
+          <button type="submit" name="add" id="AddToCart" class="btn {% if subscription_only %}slowload{% endif %} addtocart">Next</button>
+          {% assign subscription_only = false %}
         </form>
 
       </div>
