@@ -3,6 +3,7 @@
 {% assign include_age_selector = false %}
 {% assign include_age_range = false %}
 {% assign include_gender = false %}
+{% assign include_note = false %}
 
 {% for tag in product.tags %}
 	{% assign product_tag = tag | downcase %}
@@ -22,6 +23,9 @@
 		{% assign include_gender = true %}
 	{% endif %}
 
+	{% if product_tag == 'option: note' %}
+		{% assign include_note = true %}
+	{% endif %}
 {% endfor %}
 
 <div class="item-additional-detail-modal js-duplicate">
@@ -57,6 +61,7 @@
 							<option value="2nd Birthday">2nd Birthday</option>
 							<option value="3rd Birthday">3rd Birthday</option>
 							<option value="4th Birthday">4th Birthday</option>
+							<option value="4th Birthday">5th Birthday</option>
 						</select>
 					</div>
 				</div>
@@ -134,6 +139,7 @@
 						<option value="18 - 24 months">18 - 24 months</option>
 						<option value="2 - 3 years">2 - 3 years</option>
 						<option value="3 - 4 years">3 - 4 years</option>
+						<option value="4 - 5 years">4 - 5 years</option>
 					</select>
 				</div>
 			</div>
@@ -158,6 +164,13 @@
 				<input type="radio" id="genderGirl" name="properties[Gender]" value="Girl">
 				<label for="genderGirl">Girl</label>
 			</div>
+		</div>
+	{% endif %}
+
+	{% if include_note %}
+		<div class="gift-note">
+			<label for="gift-note-content" class="gift-note-label">Leave a note!</label>
+			<textarea id="gift-note-content" name="properties[Note]"></textarea>
 		</div>
 	{% endif %}
 

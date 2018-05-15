@@ -1,6 +1,4 @@
 function exportCollection() {
-	require('swiper');
-
 	function slidesPerView() {
 		var windowWidth = $(window).width();
 		if (windowWidth > 1199) {
@@ -15,8 +13,6 @@ function exportCollection() {
 	}
 
 	var slidesPerView = slidesPerView();
-
-	console.log($(window).width());
 
 	var heroSlider = new Swiper('.swiper-container',{
     keyboardControl: true,

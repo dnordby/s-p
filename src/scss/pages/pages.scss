@@ -106,7 +106,8 @@ body.template-product {
 						&.birthday-wrapper,
 						&.js-range-wrapper,
 						&.child-gender,
-						&.birthday-box-age {
+						&.birthday-box-age,
+						&.gift-note {
 							margin-bottom: 72px;
 							img,
 							.input-wrapper img {
@@ -175,6 +176,12 @@ body.template-product {
 									cursor: pointer;
 								}
 							}
+						}
+						&.gift-note {
+							margin-left: auto;
+							margin-right: auto;
+							position: relative;
+							width: 50%;
 						}
 					}
 				}
