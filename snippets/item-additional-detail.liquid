@@ -50,22 +50,41 @@
 	{% if include_age_selector or include_age_range %}
 		{% comment %} AGE SELECTOR TOGGLE {% endcomment %}
 		{% if include_age_range %}
-			<div class="birthday-box-age">
-				<img src="{{ 'icon-birthday.png' | asset_img_url: '200x' }}">
-				<div class="birthday-box-age-value">
-					<div class="input-wrapper">
-						<label for="birthdayAgeRange">Which Birthday are you celebrating?</label>
-						<select id="birthdayAgeRange" name="properties[Birthday for Birthday Box]">
-							<option disabled selected value></option>
-							<option value="1st Birthday">1st Birthday</option>
-							<option value="2nd Birthday">2nd Birthday</option>
-							<option value="3rd Birthday">3rd Birthday</option>
-							<option value="4th Birthday">4th Birthday</option>
-							<option value="4th Birthday">5th Birthday</option>
-						</select>
+			{% if product_handle == 'holiday-box' %}
+				<div class="birthday-box-age">
+					{% comment %}<img src="{{ 'icon-birthday.png' | asset_img_url: '200x' }}">{% endcomment %}
+					<div class="birthday-box-age-value">
+						<div class="input-wrapper">
+							<label for="birthdayAgeRange">Child's age</label>
+							<select id="birthdayAgeRange" name="properties[Birthday for Birthday Box]">
+								<option disabled selected value></option>
+								<option value="1st Birthday">1 year old</option>
+								<option value="2nd Birthday">2 year old</option>
+								<option value="3rd Birthday">3 year old</option>
+								<option value="4th Birthday">4 year old</option>
+								<option value="4th Birthday">5 year old</option>
+							</select>
+						</div>
 					</div>
 				</div>
-			</div>
+			{% else %}
+				<div class="birthday-box-age">
+					<img src="{{ 'icon-birthday.png' | asset_img_url: '200x' }}">
+					<div class="birthday-box-age-value">
+						<div class="input-wrapper">
+							<label for="birthdayAgeRange">Which Birthday are you celebrating?</label>
+							<select id="birthdayAgeRange" name="properties[Birthday for Birthday Box]">
+								<option disabled selected value></option>
+								<option value="1st Birthday">1st Birthday</option>
+								<option value="2nd Birthday">2nd Birthday</option>
+								<option value="3rd Birthday">3rd Birthday</option>
+								<option value="4th Birthday">4th Birthday</option>
+								<option value="4th Birthday">5th Birthday</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			{% endif %}
 		{% elsif include_age_selector %}
 			<div class="age-toggle js-toggle-age-options">
 				<img src="{{ 'icon-birthday.png' | asset_img_url: '200x' }}">
